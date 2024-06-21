@@ -1,0 +1,146 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMUyW8UShaAk/ITRUTAhU4D",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/naidu199/LLM-workshop/blob/main/ieee%20nuts%20and%20bolts%20Deep%20Learning\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 19,
+      "metadata": {
+        "id": "nYN5q0E5Ajad"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "X=np.array([2,4,5,7,11,15])\n",
+        "Y=np.array([-1,1,-1,1,-1,1])"
+      ],
+      "metadata": {
+        "id": "B9873hIoAlM6"
+      },
+      "execution_count": 20,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "w=0\n",
+        "b=0"
+      ],
+      "metadata": {
+        "id": "XbcktlcNAxjo"
+      },
+      "execution_count": 21,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for _ in range(25):\n",
+        "  y_hat=np.sign(w*X+b)\n",
+        "  correct=Y==y_hat\n",
+        "  for i in range(len(X)):\n",
+        "    w=w+(Y[i]-y_hat[i])*X[i]\n",
+        "    b=b+(Y[i]-y_hat[i])\n",
+        "  print(correct)\n",
+        "  if(sum(correct)==5):\n",
+        "    print(\"all are correct\")\n",
+        "    print(correct)\n",
+        "    break\n",
+        "print(w)\n",
+        "print(b)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7R_nBw_mAzDw",
+        "outputId": "3be11daa-2875-4221-ecc4-cf8fb0121f43"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[False False False False False False]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "[False  True False  True False  True]\n",
+            "[ True  True False  True False  True]\n",
+            "[ True False  True False  True False]\n",
+            "28\n",
+            "-22\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import torch"
+      ],
+      "metadata": {
+        "id": "_0kLfph5BKU_"
+      },
+      "execution_count": 23,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "0Sggb1jCO-T6"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
